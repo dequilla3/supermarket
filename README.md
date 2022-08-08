@@ -31,7 +31,7 @@
 
 ### View Supplier
 
-![My Image](img\view_suppliers.PNG)
+![My Image](https://github.com/dequilla3/supermarket/blob/main/img/add_customer.PNG)
 
 ### Save Supplier
 
