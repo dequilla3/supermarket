@@ -48,7 +48,7 @@ function setRowsToTable($product_id, $barcode, $description, $cost, $cumulative_
             <td >
             <a onclick='replaceUrlState($product_id)' >
                 <button class='btn-op-update', name='add'>
-                Receive
+                Receive 
                 </button>
             </a>
             </td>
