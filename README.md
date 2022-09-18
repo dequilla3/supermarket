@@ -31,44 +31,43 @@
 
 ### View Supplier
 
-![My Image](img\view_suppliers.PNG)
+![My Image](https://raw.githubusercontent.com/dequilla3/supermarket/main/img/add_customer.PNG)
 
 ### Save Supplier
 
-![My Image2](img\save_supplier.PNG)
+![My Image2](https://github.com/dequilla3/supermarket/blob/main/img/save_supplier.PNG)
 
 ### Update Supplier
 
-![My Image3](img\update_supplier.PNG)
+![My Image3](https://github.com/dequilla3/supermarket/blob/main/img/update_supplier.PNG)
 
 ### View Customer
 
-![My Image4](img\view_customer.PNG)
+![My Image4](https://github.com/dequilla3/supermarket/blob/main/img/view_customer.PNG)
 
 ### Add Customer
 
-![My Image5](img\add_customer.PNG)
+![My Image5](https://github.com/dequilla3/supermarket/blob/main/img/add_customer.PNG)
 
 ### Update Customer
 
-![My Image6](img\update_customer.PNG)
+![My Image6](https://github.com/dequilla3/supermarket/blob/main/img/update_customer.PNG)
 
 ### View Products
 
-![My Image7](img\view_products.PNG)
+![My Image7](https://github.com/dequilla3/supermarket/blob/main/img/view_products.PNG)
 
 ### Add Products
 
-![My Image8](img\add_product.PNG)
+![My Image8](https://github.com/dequilla3/supermarket/blob/main/img/add_product.PNG)
 
 ### Update Products
 
-![My Image9](img\update_product.PNG)
-
+![My Image9](https://github.com/dequilla3/supermarket/blob/main/img/update_product.PNG)
 ### Goods Receive
 
-![My Image10](img\gr.PNG)
+![My Image10](https://github.com/dequilla3/supermarket/blob/main/img/gr.PNG)
 
 ### Purchase
 
-![My Image11](img\purch.PNG)
+![My Image11](https://github.com/dequilla3/supermarket/blob/main/img/purch.PNG)
