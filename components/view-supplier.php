@@ -15,7 +15,7 @@
 <body>
     <?php require "header.php" ?>
     <div class="container">
-        <h3 class="form-title">View Supplier</h3>
+        <h3 class="form-title">Supplier</h3>
         <a href="supplier-form.php">
             <div class="btn-div">
                 <button class="btn-success" id="add_supplier">

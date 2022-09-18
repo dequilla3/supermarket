@@ -14,7 +14,9 @@ if (
     $qty = $_GET['qty'];
     $product_id = $_GET['product_id'];
 
+    //insert purchase here
     $resultPurch = mysqli_query($con, insertPurch($custId, $qty, $product_id));
+    //insert stockard here
     $resultStockard = mysqli_query($con, insertStockard($qty, $product_id));
 
     if ($resultPurch && $resultStockard) {
@@ -41,6 +43,7 @@ function insertPurch($custId, $qty, $product_id)
         (
         '$product_id',
 
+        -- cost
         (SELECT
         prod.cost
         FROM
@@ -49,6 +52,7 @@ function insertPurch($custId, $qty, $product_id)
 
         '$qty',
 
+        -- qty_purchase + product_cost
         ('$qty'*(SELECT
         prod.cost
         FROM
@@ -77,22 +81,28 @@ function insertStockard($qty, $product_id)
         (
         '$product_id',
 
+        -- qty_purch+-1 multiply to negative 1 to negate the qty
         '$qty'*-1,
 
-        ('$qty'*-1) + IFNULL((SELECT
-        IFNULL(st.cumulative_qty, 0.00)
-        FROM
-        stockard st
-        WHERE st.stockard_id = 
-        (SELECT MAX(mstck.stockard_id) 
-        FROM stockard mstck WHERE mstck.product_id = '$product_id' )), 0.00),
+        -- qty.negate() + current stockard qty
+        ('$qty'*-1) + 
+        IFNULL(( #ifnull select query then 0.00
+            SELECT
+            IFNULL(st.cumulative_qty, 0.00)
+            FROM
+            stockard st
+            WHERE st.stockard_id = 
+            (SELECT MAX(mstck.stockard_id) 
+            FROM stockard mstck WHERE mstck.product_id = '$product_id' ))
+        , 0.00),
 
+        -- Cost of Goods Sold
         'COGS',
 
+        -- select latest purchase_id to select current purchase transaction
         (SELECT
         MAX(purchase_id)
         FROM
-        purchase)
-        )";
+        purchase))";
     return $sql;
 }

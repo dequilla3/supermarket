@@ -15,7 +15,7 @@
 <body>
     <?php require "header.php" ?>
     <div class="container">
-        <h3 class="form-title">View Product</h3>
+        <h3 class="form-title">Product</h3>
         <a href="product-form.php">
             <div class="btn-div">
                 <button class="btn-success" id="add_product">

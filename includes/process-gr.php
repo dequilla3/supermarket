@@ -12,7 +12,9 @@ if (
     $qty = $_GET['qty'];
     $product_id = $_GET['product_id'];
 
+    //insert goods_received here
     $resultGr = mysqli_query($con, insertGr($supId, $qty, $product_id));
+    //insert stockard here
     $resultStockard = mysqli_query($con, insertStockard($qty, $product_id));
 
     if ($resultGr && $resultStockard) {
@@ -44,6 +46,7 @@ function insertGr($supId, $qty, $product_id)
     return $sql;
 }
 
+//quert to insert stckard
 function insertStockard($qty, $product_id)
 {
     $sql =
@@ -58,19 +61,25 @@ function insertStockard($qty, $product_id)
         VALUES
         (
         '$product_id',
-
+        
         '$qty',
 
-        '$qty' + IFNULL((SELECT
-        IFNULL(st.cumulative_qty, 0.00)
-        FROM
-        stockard st
-        WHERE st.stockard_id = 
-        (SELECT MAX(mstck.stockard_id) 
-        FROM stockard mstck WHERE mstck.product_id = '$product_id' )), 0.00),
+        -- qty_received + current qty stock or / qty balance
+        '$qty' + 
+        IFNULL((
+            SELECT
+            IFNULL(st.cumulative_qty, 0.00)
+            FROM
+            stockard st
+            WHERE st.stockard_id = 
+            (SELECT MAX(mstck.stockard_id) #select latest stockard per product to get previous qty
+            FROM stockard mstck WHERE mstck.product_id = '$product_id' ))
+        , 0.00), #as cumulative qty
 
-        'COGS',
+        -- additional stock
+        'GAIN',
 
+        -- select latest gr id to get current transaction
         (SELECT
         MAX(goods_received_id)
         FROM

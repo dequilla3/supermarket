@@ -31,6 +31,9 @@ include '..\includes\update-customer.php    ';
             <input type="number" maxlength="11" id="contactno" name="contactno" placeholder="Conact No.."
                 value=<?php echo $update_contactno ?>>
 
+            <label>Age</label>
+            <input type="number" maxlength="11" id="age" name="age" placeholder="Age.." value=<?php echo $update_age ?>>
+
             <input type="submit" value="Update" name="update-customer">
 
             <button class="btn-cancel" name="cancel-customer"> Cancel </button>

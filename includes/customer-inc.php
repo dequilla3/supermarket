@@ -7,6 +7,7 @@ if (isset($_POST['cancel-customer'])) {
     $cname = $_POST['cname'];
     $contactno = $_POST['contactno'];
     $address = $_POST['address'];
+    $age = $_POST['age'];
 
     //if empty fields
     if (hasEmptyFields($cname, $contactno, $address)) {
@@ -15,7 +16,7 @@ if (isset($_POST['cancel-customer'])) {
 							</div>';
     } else {
         //insert supplier here
-        $result = mysqli_query($con, insertCustomer($cname, $contactno, $address));
+        $result = mysqli_query($con, insertCustomer($cname, $contactno, $address, $age));
         if ($result) {
             header('location:..\components\view-customer.php');
         }
@@ -23,21 +24,23 @@ if (isset($_POST['cancel-customer'])) {
 }
 
 //query to insert supplier
-function insertCustomer($cname, $contactno, $address)
+function insertCustomer($cname, $contactno, $address, $age)
 {
     $sql =
         "INSERT INTO customer (
         customer_name,
         address,
         contact_no,
-        date_created
+        date_created,
+        age
       )
       VALUES
         (
           '$cname',
           '$address',
           '$contactno',
-          NOW()
+          NOW(),
+          '$age'
         )";
     return $sql;
 }

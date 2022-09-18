@@ -15,10 +15,10 @@
 <body>
     <?php require "header.php" ?>
     <div class="container">
-        <h3 class="form-title">View Cutomer</h3>
+        <h3 class="form-title">Cutomer</h3>
         <a href="customer-form.php">
             <div class="btn-div">
-                <button class="btn-success" id="add_customer">
+                <button class="btn-op-delete" id="add_customer">
                     Add Customer
                 </button>
             </div>
@@ -30,7 +30,8 @@
                 <th>Cutomer Name</th>
                 <th>Address</th>
                 <th>Contact No.</th>
-                <th>Contact No</th>
+                <th>Age</th>
+                <th>Operation</th>
                 <?php
                 include '..\includes\fetch-customers.php';
                 ?>

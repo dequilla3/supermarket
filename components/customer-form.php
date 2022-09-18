@@ -1,5 +1,5 @@
 <?php
-include '../includes\customer-inc.php';
+include '../includes/customer-inc.php';
 ?>
 
 <!doctype html>
@@ -30,7 +30,12 @@ include '../includes\customer-inc.php';
             <label>Address</label>
             <input type="text" id="address" autocomplete="off" name="address" placeholder="Address..">
 
+            <label>Age</label>
+            <input type="text" id="age" autocomplete="off" name="age" placeholder="Age..">
+
+
             <input type="submit" value="Submit" name="submit-customer">
+
 
             <button class="btn-cancel" name="cancel-customer"> Cancel </button>
 

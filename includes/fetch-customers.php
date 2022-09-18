@@ -8,7 +8,8 @@ if (isset($result)) {
         $customer_name = $row['customer_name'];
         $address = $row['address'];
         $contact_no = $row['contact_no'];
-        echo setRowsToTable($customer_id, $customer_name, $address, $contact_no);
+        $age = $row['age'];
+        echo setRowsToTable($customer_id, $customer_name, $address, $contact_no, $age);
     }
 }
 
@@ -18,7 +19,7 @@ function getAllCutomers()
     return $sql;
 }
 
-function setRowsToTable($customer_id, $customer_name, $address, $contact_no)
+function setRowsToTable($customer_id, $customer_name, $address, $contact_no, $age)
 {
     $path = isset($_GET['isSelect']) ? 'purch-transaction.php' : 'update-customer-form.php';
     $value = isset($_GET['isSelect']) ? 'Select' : 'Update';
@@ -27,6 +28,7 @@ function setRowsToTable($customer_id, $customer_name, $address, $contact_no)
             <td>$customer_name</td>
             <td>$address</td>
             <td>$contact_no</td>
+            <td>$age</td>
             <td>
             <a href='$path?updateId=$customer_id&cname=$customer_name''>
                 <button class='btn-op-update'>

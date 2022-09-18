@@ -9,11 +9,11 @@ if (isset($_POST['cancel-supplier'])) {
     $contactno = $_POST['contactno'];
     $address = $_POST['address'];
 
-    //if suppliers code already exist cannot insert encoded supplier
     if (hasEmptyFields($scode, $cname, $contactno, $address)) {
         echo '<div id="alert_div" class="p-signup-error">
 								<p>Please fill empty fields!</p>
 							</div>';
+        //if suppliers code already exist cannot insert encoded supplier
     } else if (isSuppliersCodeExist($con, $scode)) {
         echo '<div id="alert_div" class="p-signup-error">
 								<p>Supplier code already exist!</p>

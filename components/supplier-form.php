@@ -1,5 +1,5 @@
 <?php
-include '../includes\supplier-inc.php';
+include '..\includes\supplier-inc.php';
 ?>
 
 <!doctype html>
